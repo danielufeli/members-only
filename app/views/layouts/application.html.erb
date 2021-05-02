@@ -27,7 +27,7 @@
         <%= link_to 'New Post', new_post_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to current_user.email, edit_user_registration_path, class: "nav-link" %>
+        <%= link_to current_user.name, edit_user_registration_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
         <%= link_to 'Signout', destroy_user_session_path, method: :delete, class: "nav-link" %>
@@ -44,8 +44,18 @@
     </ul>
   </div>
 </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if flash[:notice] %>
+    <div class="alert alert-primary" role="alert">
+      <p><%= notice %></p>
+    </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+    <div class="alert alert-danger" role="alert">
+      <p><%= alert %></p>
+    </div>
+    <% end %>
+    <br />
     <%= yield %>
   </body>
 </html>

@@ -3,14 +3,18 @@
     <% @posts.each do | post | %>
     <div class="card text-center">
     <div class="card-header">
-    Title
+    <%= post.title %>
     </div>
     <div class="card-body">
     <p class="card-text"><%= post.post %></p>
   </div>
   <% if user_signed_in? %>
   <div class="card-footer text-muted">
-    <p>Author: <%= post.user.email %> | Date Posted : <%= post.created_at.strftime("%B %d, %Y") %></p>
+    <p>Author: <%= post.user.name %> | Date Posted : <%= post.created_at.strftime("%B %d, %Y") %></p>
+  </div>
+  <% else %>
+  <div class="card-footer text-muted">
+    <p>Login to see the Author's Name | Date Posted : <%= post.created_at.strftime("%B %d, %Y") %></p>
   </div>
   <% end %>
   </div>
