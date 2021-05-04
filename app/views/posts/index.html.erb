@@ -1,0 +1,18 @@
+<section class="section">
+  <div class="container">
+    <% @posts.each do | post | %>
+    <div class="card text-center">
+    <div class="card-header">
+    <%= post.title %>
+    </div>
+    <div class="card-body">
+    <p class="card-text"><%= post.post %></p>
+  </div>
+  <div class="card-footer text-muted">
+    <p><%= author_name(post) %> | Date Posted : <%= post.created_at.strftime("%B %d, %Y") %></p>
+  </div>
+  </div>
+  <br />
+  <% end %>
+  </div> 
+</section>
