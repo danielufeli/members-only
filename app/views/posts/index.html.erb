@@ -8,15 +8,9 @@
     <div class="card-body">
     <p class="card-text"><%= post.post %></p>
   </div>
-  <% if user_signed_in? %>
   <div class="card-footer text-muted">
-    <p>Author: <%= post.user.name %> | Date Posted : <%= post.created_at.strftime("%B %d, %Y") %></p>
+    <p><%= author_name(post) %> | Date Posted : <%= post.created_at.strftime("%B %d, %Y") %></p>
   </div>
-  <% else %>
-  <div class="card-footer text-muted">
-    <p>Login to see the Author's Name | Date Posted : <%= post.created_at.strftime("%B %d, %Y") %></p>
-  </div>
-  <% end %>
   </div>
   <br />
   <% end %>
